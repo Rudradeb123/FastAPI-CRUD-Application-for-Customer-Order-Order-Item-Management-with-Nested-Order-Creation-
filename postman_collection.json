@@ -1,0 +1,109 @@
+{
+  "info": {
+    "name": "Flask Orders API",
+    "_postman_id": "flask-1234",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create customer",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Alice\",\n  \"email\": \"alice@example.com\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:5000/customers",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["customers"]
+        }
+      }
+    },
+    {
+      "name": "Create order with items",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"customer_id\": 1,\n  \"status\": \"Draft\",\n  \"items\": [\n    {\"product_name\": \"Pen\", \"quantity\": 2, \"price\": 10.5},\n    {\"product_name\": \"Notebook\", \"quantity\": 1, \"price\": 50}\n  ]\n}"
+        },
+        "url": {
+          "raw": "http://localhost:5000/orders",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["orders"]
+        }
+      }
+    },
+    {
+      "name": "Get customer total spend",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5000/customers/1/total_spend",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["customers","1","total_spend"]
+        }
+      }
+    },
+    {
+      "name": "Update order status to Confirmed",
+      "request": {
+        "method": "PATCH",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"status\": \"Confirmed\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:5000/orders/1/status",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["orders","1","status"]
+        }
+      }
+    },
+    {
+      "name": "Update order status to Shipped",
+      "request": {
+        "method": "PATCH",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"status\": \"Shipped\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:5000/orders/1/status",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["orders","1","status"]
+        }
+      }
+    },
+    {
+      "name": "Delete order",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5000/orders/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["orders","1"]
+        }
+      }
+    }
+  ]
+}
